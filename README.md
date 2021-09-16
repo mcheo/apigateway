@@ -15,6 +15,23 @@ Note: You may use NGINX OSS instead of NGINX Plus container. However, some of th
 - Install docker and docker-compose in your machine
 - Build NGINX Plus docker image and have it in your machine (You do not need to push to external repo)
 
+## Getting Started
+To start this demo:
+```
+#Clone the repo
+git clone https://github.com/mcheo-nginx/apigateway
+
+#To step up the stack
+docker-compose -f docker-compose.yml up -d 
+
+#After modifying nginx.conf config file, you need to reload NGINX process
+docker exec apigateway_nginx_1 nginx -s reload
+
+#To monitor the logs
+docker exec apigateway_nginx_1 tail -f --tail=10 /var/log/nginx/nginx_access.log
+
+```
+
 ## API Gateway Essential Functions Demo:
 These are the essential functions of any API Gateway, we will demonstrate each of these
 - TLS Termination
@@ -22,9 +39,9 @@ These are the essential functions of any API Gateway, we will demonstrate each o
 - Rate limiting
 - Load balancing
 - Client Authentication
-    Basic API Key
-    JWT Validation
-    Dynamic API Key (Leverage NGINX Plus Key-Value Store)
+    - Basic API Key
+    - JWT Validation
+    - Dynamic API Key (Leverage NGINX Plus Key-Value Store)
 - Fine-grained access control
 
 
