@@ -1,0 +1,27 @@
+version: '3'
+services:
+    app1:
+        image: kennethreitz/httpbin
+        environment:
+            - "GUNICORN_CMD_ARGS=\"--capture-output --error-logfile - --access-logfile - --access-logformat \"%(h)s %(t)s %(r)s %(s)s Host: %({Host}i)s}\"\""
+        expose:
+         - "80"
+    app2:
+        image: kennethreitz/httpbin
+        environment:
+            - "GUNICORN_CMD_ARGS=\"--capture-output --error-logfile - --access-logfile - --access-logformat \"%(h)s %(t)s %(r)s %(s)s Host: %({Host}i)s}\"\""
+        expose:
+         - "80"
+    nginx:
+        image: nginxplus:r24-2
+        volumes:
+            - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+            - ./nginx/apigwdemo.com.crt:/etc/nginx/apigwdemo.com.crt
+            - ./nginx/apigwdemo.com.key:/etc/nginx/apigwdemo.com.key
+            - ./nginx/api_secret.jwk:/etc/nginx/api_secret.jwk #NGINX Plus feature
+            - ./nginx/dashboard.conf:/etc/nginx/conf.d/dashboard.conf #NGINX Plus feature
+        ports:
+            - "80:80"
+            - "443:443"
+            - "8080:8080" #To be used for NGINX Dashboard and API
+
