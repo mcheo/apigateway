@@ -88,3 +88,8 @@ curl -k -H "Authorization: Bearer $TOKEN" https://localhost/headers
 #You must update the key-value store bofore hand
 curl -k -H "x-kv-apikey:<valid_key>" https://localhost/anything
 ```
+
+
+## References:
+- [NGINX Official Docs](https://docs.nginx.com/)
+- [NGINX Modules Documentation](http://nginx.org/en/docs/)
