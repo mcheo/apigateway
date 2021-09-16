@@ -1,7 +1,7 @@
 
 # An easy guide to Learn, Test and Deploy API Gateway with NGINX
 
-Many times good technologies are beyond your reach, you learn about it but you can't play with it. It doesn't have to be this way.
+Many times good technologies are beyond your reach, you heard about it but you can't play with it. It doesn't have to be this way.
 
 NGINX/NGINX Plus is a lightweight, high performance, advanced API Gateway. Yet you can easily spin up even in your local machine for learning and testing. The objective of this repo is to use the least installed components/resources to learn and test NGINX API Gateway. Eventually you will learn to deploy it into production.
 
