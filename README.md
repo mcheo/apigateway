@@ -1,5 +1,5 @@
 
-# An easy guide to Learn, Test and Deploy API Gateway with NGINX
+# An Easy Guide: Learn, Test and Deploy API Gateway with NGINX
 
 Many times good technologies are beyond your reach, you heard about it but you can't play with it. It doesn't have to be this way.
 
