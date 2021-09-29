@@ -1,7 +1,7 @@
 
 # An Easy Guide: Learn, Test and Deploy API Gateway with NGINX
 
-Many times good technologies are beyond your reach, you heard about it but you can't play with it. It doesn't have to be this way.
+Many times good technologies are beyond your reach, you heard about it but you can't play with it due to lack of resources. It doesn't have to be this way.
 
 NGINX/NGINX Plus is a lightweight, high performance, advanced API Gateway. Yet you can easily spin up even in your local machine for learning and testing. The objective of this repo is to use the least installed components/resources to learn and test NGINX API Gateway. Eventually you will learn to deploy it into production.
 
@@ -9,7 +9,7 @@ Components:
 - NGINX Plus [You may request for a NGINX Plus [Trial License](https://www.nginx.com/free-trial-request/) and build the [NGINX Plus Docker Image](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/)]
 - 2 httpbin as backend servers [For load balancing demo purpose]
 
-Note: You may use NGINX OSS instead of NGINX Plus container. However, some of the features used only available in NGINX Plus. I have put comments next to directives inside the conf files.
+Note: You may use NGINX OSS instead of NGINX Plus container. However, some of the features used are only available in NGINX Plus. I have put comments next to directives inside the conf files.
 
 ## Prerequisite: 
 - Install docker and docker-compose in your machine
@@ -24,7 +24,7 @@ git clone https://github.com/mcheo-nginx/apigateway
 #To step up the stack
 docker-compose -f docker-compose.yml up -d 
 
-#After modifying nginx.conf config file, you need to reload NGINX process
+#Every time you modify nginx.conf config file, you need to reload NGINX process
 docker exec apigateway_nginx_1 nginx -s reload
 
 #To monitor the logs
@@ -33,7 +33,7 @@ docker exec apigateway_nginx_1 tail -f --tail=10 /var/log/nginx/nginx_access.log
 ```
 
 ## API Gateway Essential Functions Demo:
-These are the essential functions of any API Gateway, we will demonstrate each of these
+These are the essential functions of an API Gateway, we will demonstrate each of these
 - TLS Termination
 - Request routing
 - Rate limiting
@@ -55,7 +55,7 @@ Sample commands to generate random hex string to be used as API Key
 openssl rand -hex 10
 ```
 
-Sample commands to update NGINX Plus Key-Value store, I have created apikeyzone in the conf file
+Sample commands to update NGINX Plus Key-Value store, I have defined apikeyzone in the conf file
 ```
 #To list table
 curl  http://localhost:8080/api/6/http/keyvals/apikeyzone
@@ -78,6 +78,7 @@ curl -k https://localhost/delay/1
 
 curl -k https://localhost/delay/11 #This will fail the regex match
 
+#The API Gateway is expecting API Key in HTTP Header "x-api-key" for basic authentication
 curl -k -H "x-api-key:2j1PM5rwgt" -X POST https://localhost/post
 
 #Visit [jwt.io](https://jwt.io/) to generate JWT token. The secret key used in this demo is "apigwdemosecret".
