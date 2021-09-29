@@ -24,6 +24,9 @@ git clone https://github.com/mcheo-nginx/apigateway
 #To step up the stack
 docker-compose -f docker-compose.yml up -d 
 
+#To delete the demo stack after testing
+docker-compose -f docker-compose.yml down
+
 #Every time you modify nginx.conf config file, you need to reload NGINX process
 docker exec apigateway_nginx_1 nginx -s reload
 
