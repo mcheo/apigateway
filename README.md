@@ -31,8 +31,7 @@ docker-compose -f docker-compose.yml down
 docker exec apigateway_nginx_1 nginx -s reload
 
 #To monitor the logs
-docker exec apigateway_nginx_1 tail -f --tail=10 /var/log/nginx/nginx_access.log
-
+docker exec apigateway_nginx_1 tail -f -n 10 /var/log/nginx/nginx_access.log
 ```
 
 ## API Gateway Essential Functions Demo:
