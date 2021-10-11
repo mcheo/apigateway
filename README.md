@@ -60,13 +60,13 @@ openssl rand -hex 10
 Sample commands to update NGINX Plus Key-Value store, I have defined apikeyzone in the conf file
 ```
 #To list table
-curl  http://localhost:8080/api/6/http/keyvals/apikeyzone
+curl  http://localhost:8080/api/7/http/keyvals/apikeyzone
 
 #To add record into the table
-curl -X POST -d '{"user1":"1"}'  http://localhost:8080/api/6/http/keyvals/apikeyzone 
+curl -X POST -d '{"user1":"1"}'  http://localhost:8080/api/7/http/keyvals/apikeyzone 
 
 #To remove record from the table
-curl -X PATCH -d '{"user1":null}' -s 'http://localhost:8080/api/6/http/keyvals/apikeyzone'
+curl -X PATCH -d '{"user1":null}' -s 'http://localhost:8080/api/7/http/keyvals/apikeyzone'
 ```
 
 You may also use tool such as [Postman](https://www.postman.com/) for API testing. However, we are using curl commands below as we aspire to minimize prerequisites for this learning.
