@@ -89,7 +89,7 @@ TOKEN=xxxxx
 curl -k -H "Authorization: Bearer $TOKEN" https://localhost/headers
 
 #You must update the key-value store bofore hand
-curl -k -H "x-kv-apikey:<valid_key>" https://localhost/anything
+curl -k -H "x-kv-api-key:<valid_key>" https://localhost/anything
 ```
 
 
